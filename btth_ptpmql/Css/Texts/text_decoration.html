@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Decoration Example</title>
+    <style>
+        .overline { text-decoration: overline; }
+        .line-through { text-decoration: line-through; }
+        .underline { text-decoration: underline; }
+        .overline-underline { text-decoration: overline underline; }
+
+        /* Color decoration examples */
+        .color-example { margin-top: 20px; }
+        .color-example h3 { margin-bottom: 5px; }
+        .color-red { text-decoration-line: overline; text-decoration-color: red; }
+        .color-blue { text-decoration-line: line-through; text-decoration-color: blue; }
+        .color-green { text-decoration-line: underline; text-decoration-color: green; }
+        .color-purple { text-decoration-line: overline underline; text-decoration-color: purple; }
+
+        .note { background-color: #ffffd0; padding: 10px; border-left: 5px solid #ffeb3b; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Text Decoration Examples</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2 class="overline">Overline text decoration</h2>
+            <h2 class="line-through">Line-through text decoration</h2>
+            <h2 class="underline">Underline text decoration</h2>
+            <p class="overline-underline">Overline and underline text decoration</p>
+        </section>
+
+        <section class="color-example">
+            <h3>Color Decoration Examples:</h3>
+            <p class="color-red">Red overline decoration</p>
+            <p class="color-blue">Blue line-through decoration</p>
+            <p class="color-green">Green underline decoration</p>
+            <p class="color-purple">Purple overline and underline decoration</p>
+        </section>
+
+        <div class="note">
+            <strong>Note:</strong> It is not recommended to underline text that is not a link, as this often confuses the reader.
+        </div>
+    </main>
+
+    <footer>
+        <p>Created by: Nguyen Thanh Tung - 1921050664</p>
+    </footer>
+</body>
+</html>

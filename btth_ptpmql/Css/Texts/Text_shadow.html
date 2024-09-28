@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Shadow Examples</title>
+    <style>
+        :root {
+            --shadow-x: 2px;
+            --shadow-y: 2px;
+            --shadow-blur: 0px;
+            --shadow-color: #000000;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            text-shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-color);
+            margin-bottom: 30px;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .controls label {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preset-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .explanation {
+            max-width: 600px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Shadow Effect</h1>
+
+    <div class="controls">
+        <label>
+            X-offset:
+            <input type="range" min="-10" max="10" value="2" id="x-offset">
+        </label>
+        <label>
+            Y-offset:
+            <input type="range" min="-10" max="10" value="2" id="y-offset">
+        </label>
+        <label>
+            Blur:
+            <input type="range" min="0" max="10" value="0" id="blur">
+        </label>
+        <label>
+            Color:
+            <input type="color" value="#000000" id="color">
+        </label>
+    </div>
+
+    <div class="preset-buttons">
+        <button onclick="applyPreset('2px 2px red')">Red Shadow</button>
+        <button onclick="applyPreset('2px 2px 5px red')">Red Blurred Shadow</button>
+        <button onclick="applyPreset('2px 2px 4px #000000')">Black Blurred Shadow</button>
+        <button onclick="applyPreset('0 0 3px #ff0000, 0 0 5px #0000ff')">Multiple Shadows</button>
+    </div>
+
+    <div class="explanation">
+        <p>Adjust the sliders to change the text shadow properties. The X and Y offsets determine the shadow's position, blur affects its softness, and you can choose any color for the shadow.</p>
+        <p>Try the preset buttons to see different text shadow effects!</p>
+    </div>
+
+    <footer>
+        <p>Created by: Nguyen Thanh Tung - 1921050664</p>
+    </footer>
+
+    <script>
+        const xOffset = document.getElementById('x-offset');
+        const yOffset = document.getElementById('y-offset');
+        const blur = document.getElementById('blur');
+        const color = document.getElementById('color');
+        const h1 = document.querySelector('h1');
+
+        function updateShadow() {
+            document.documentElement.style.setProperty('--shadow-x', `${xOffset.value}px`);
+            document.documentElement.style.setProperty('--shadow-y', `${yOffset.value}px`);
+            document.documentElement.style.setProperty('--shadow-blur', `${blur.value}px`);
+            document.documentElement.style.setProperty('--shadow-color', color.value);
+        }
+
+        function applyPreset(shadow) {
+            h1.style.textShadow = shadow;
+        }
+
+        [xOffset, yOffset, blur, color].forEach(input => input.addEventListener('input', updateShadow));
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatting Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .demo-text {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .controls label {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .explanation {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Formatting Examples</h1>
+
+    <div class="demo-text" id="demo">
+        <p>In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since. 'Whenever you feel like criticizing anyone,' he told me, 'just remember that all the people in this world haven't had the advantages that you've had.'</p>
+    </div>
+
+    <div class="controls">
+        <label>
+            Text Indent:
+            <input type="range" min="0" max="100" value="0" id="text-indent">
+        </label>
+        <label>
+            Letter Spacing:
+            <input type="range" min="-2" max="10" value="0" id="letter-spacing">
+        </label>
+        <label>
+            Line Height:
+            <input type="range" min="0.8" max="3" value="1.6" step="0.1" id="line-height">
+        </label>
+        <label>
+            Word Spacing:
+            <input type="range" min="-5" max="20" value="0" id="word-spacing">
+        </label>
+    </div>
+
+    <label>
+        White Space:
+        <select id="white-space">
+            <option value="normal">Normal</option>
+            <option value="nowrap">No Wrap</option>
+            <option value="pre">Pre</option>
+            <option value="pre-wrap">Pre Wrap</option>
+            <option value="pre-line">Pre Line</option>
+        </select>
+    </label>
+
+    <div class="explanation">
+        <h2>Explanation</h2>
+        <p><strong>Text Indent:</strong> Specifies the indentation of the first line in a text block.</p>
+        <p><strong>Letter Spacing:</strong> Increases or decreases the space between characters in a text.</p>
+        <p><strong>Line Height:</strong> Sets the distance between lines of text.</p>
+        <p><strong>Word Spacing:</strong> Increases or decreases the white space between words.</p>
+        <p><strong>White Space:</strong> Specifies how white space inside an element is handled.</p>
+    </div>
+
+    <footer>
+        <p>Created by: Nguyen Thanh Tung - 1921050664</p>
+    </footer>
+
+    <script>
+        const demo = document.getElementById('demo');
+        const textIndent = document.getElementById('text-indent');
+        const letterSpacing = document.getElementById('letter-spacing');
+        const lineHeight = document.getElementById('line-height');
+        const wordSpacing = document.getElementById('word-spacing');
+        const whiteSpace = document.getElementById('white-space');
+
+        function updateFormatting() {
+            demo.style.textIndent = `${textIndent.value}px`;
+            demo.style.letterSpacing = `${letterSpacing.value}px`;
+            demo.style.lineHeight = lineHeight.value;
+            demo.style.wordSpacing = `${wordSpacing.value}px`;
+            demo.style.whiteSpace = whiteSpace.value;
+        }
+
+        [textIndent, letterSpacing, lineHeight, wordSpacing, whiteSpace].forEach(input => 
+            input.addEventListener('input', updateFormatting)
+        );
+    </script>
+</body>
+</html>
